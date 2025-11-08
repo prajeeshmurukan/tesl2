@@ -72,8 +72,7 @@ const Index = () => {
                 Travancore Energy Solutions delivers end-to-end power sector advisory — from regulatory guidance to renewable integration — helping clients achieve cost efficiency and sustainability goals
               </p>
               <div className="flex flex-wrap gap-3">
-                <a href="#contact"><Button variant="hero" size="lg">Get Started</Button></a>
-                <a href="#services"><Button variant="outline" size="lg">Learn More..</Button></a>
+                <a href="#services"><Button variant="hero" size="lg">Get Started</Button></a>
               </div>
             </div>
             <figure className="relative glass rounded-xl p-2 hover-scale md:ml-8 lg:ml-12">
