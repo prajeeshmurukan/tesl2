@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="mt-16 bg-muted/30 border-t">
       <div className="container grid gap-8 py-10 md:grid-cols-3">
         <div>
-          <p className="text-lg font-bold">Energyoptimas Consultant Pvt. Ltd.</p>
+          <p className="text-lg font-bold">Travancore Energy Solutions Private Limited.</p>
           <p className="text-muted-foreground">Strategic Energy & Power Consulting</p>
         </div>
         <nav className="grid content-start gap-2">
@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="border-t">
-        <div className="container py-4 text-xs text-muted-foreground">© {year} Energyoptimas Consultant Private Limited. All rights reserved.</div>
+        <div className="container py-4 text-xs text-muted-foreground">© {year} Travancore Energy Solutions Private Limited. All rights reserved.</div>
       </div>
     </footer>
   );
