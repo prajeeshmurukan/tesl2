@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Sun, Wind, CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
+import { Sun, Wind, CheckCircle2, Mail, Phone, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+
 const Index = () => {
   const { toast } = useToast();
 
@@ -27,6 +28,29 @@ const Index = () => {
     areaServed: "Global",
   };
 
+  const sectionIds = ["about", "solutions", "portfolio", "renewable", "distributed", "economic", "services", "sectors", "team", "contact"] as const;
+  const navigateRelative = useCallback((currentId: typeof sectionIds[number], delta: number) => {
+    const idx = sectionIds.indexOf(currentId);
+    const next = sectionIds[(idx + delta + sectionIds.length) % sectionIds.length];
+    const el = document.getElementById(next);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `#${next}`);
+    }
+  }, []);
+
+  const serviceSectionIds = ["solutions", "portfolio", "renewable", "distributed", "economic"] as const;
+  const [activeService, setActiveService] = useState<typeof serviceSectionIds[number]>("solutions");
+  const navigateService = useCallback((delta: number) => {
+    const idx = serviceSectionIds.indexOf(activeService);
+    const next = serviceSectionIds[(idx + delta + serviceSectionIds.length) % serviceSectionIds.length];
+    setActiveService(next);
+    window.history.replaceState(null, "", `#${next}`);
+  }, [activeService]);
+
+  const navBtnClass = "absolute top-1/2 -translate-y-1/2 z-30 rounded-full bg-background/80 backdrop-blur flex items-center justify-center h-12 w-12 md:h-14 md:w-14 p-0 hover:bg-background shadow-sm";
+  const navIconClass = "h-8 w-8 md:h-9 md:w-9 text-primary";
+
   return (
     <div>
       <Header />
@@ -38,19 +62,21 @@ const Index = () => {
           <div className="pointer-events-none absolute -z-10 bottom-[-10%] left-[-10%] h-72 w-72 rounded-full bg-accent/40 blur-3xl" aria-hidden />
           <div className="container grid items-center gap-8 py-16 md:grid-cols-2 md:py-24">
             <div className="space-y-6 animate-fade-up">
-              <p className="text-sm font-medium tracking-wider text-primary">Advanced power consulting for the modern energy market</p>
+              <p className="text-3xl font-bold tracking-wider text-primary whitespace-nowrap">
+                Travancore Energy Solutions Private Limited.
+              </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
                 Strategic Energy & Power Consulting
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
-                We empower energy stakeholders with strategic insights, regulatory guidance, and data-driven optimization to manage their electricity portfolios effectively.
+                Travancore Energy Solutions delivers end-to-end power sector advisory — from regulatory guidance to renewable integration — helping clients achieve cost efficiency and sustainability goals
               </p>
               <div className="flex flex-wrap gap-3">
                 <a href="#contact"><Button variant="hero" size="lg">Get Started</Button></a>
-                <a href="#services"><Button variant="outline" size="lg">Learn More</Button></a>
+                <a href="#services"><Button variant="outline" size="lg">Learn More..</Button></a>
               </div>
             </div>
-            <figure className="relative glass rounded-xl p-2 hover-scale">
+            <figure className="relative glass rounded-xl p-2 hover-scale md:ml-8 lg:ml-12">
               <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full rounded-lg border shadow-sm" />
             </figure>
           </div>
@@ -60,79 +86,327 @@ const Index = () => {
         <section id="about" className="relative container py-16 md:py-24 bg-muted/30 rounded-xl overflow-hidden">
           <div className="pointer-events-none absolute -z-10 top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl" aria-hidden />
           <div className="pointer-events-none absolute -z-10 bottom-0 left-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-          <div className="mx-auto max-w-3xl text-center space-y-4">
+          <div className="mx-auto w-[calc(100%-20px)] text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">About Us</h2>
-            <p className="text-muted-foreground text-lg">
-              Energyoptimas Consultant Private Limited is a specialist consultancy firm operating in liberalizing energy sectors. We promote sustainable energy markets, design regulations, provide inputs to policymakers, and assist clients across power generation, transmission, distribution, and related businesses to succeed.
-            </p>
+            <div className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify space-y-4">
+              <p>Travancore Energy Solutions Private Limited is a leading consulting firm specializing in power sector reforms, regulatory strategy, and sustainable energy development. With a deep understanding of India’s evolving electricity ecosystem, we work alongside government agencies, state utilities, and regulators to design efficient market frameworks, tariff models, and renewable energy policies that align with national objectives.</p>
+              <p>Our team of domain experts, engineers, and policy advisors brings extensive experience across generation, transmission, distribution, and trading sectors. We provide actionable insights to improve operational efficiency, ensure regulatory compliance, and facilitate the integration of emerging technologies in grid and market operations.</p>
+              <p>At Travancore Energy Solutions, we are committed to enabling India’s energy transition — fostering transparency, efficiency, and sustainability across every link of the power value chain.</p>
+            </div>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-2">
+          <div className="mx-auto mt-10 grid w-[calc(100%-20px)] max-w-6xl gap-8 md:grid-cols-2">
             <div>
               <h3 className="text-lg font-semibold">What we offer</h3>
               <ul className="mt-3 space-y-2 text-muted-foreground">
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Regulatory advisory and assistance for private and government power utilities.</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Power portfolio management to optimize power purchase costs for industrial and commercial consumers.</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Renewable energy project development and requirement assessments.</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Commercial due diligence for renewable and conventional energy projects.</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory advisory and assistance for private and government power utilities.</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power portfolio management to optimize power purchase costs for industrial and commercial consumers.</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable energy project development and requirement assessments.</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Commercial due diligence for renewable and conventional energy projects.</li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold">Clients include</h3>
               <ul className="mt-3 space-y-2 text-muted-foreground">
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Power generators</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Transmission utilities</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Distribution utilities</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Power traders</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary" /> Major stakeholders of the power sector</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power generators</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Transmission utilities</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Distribution utilities</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power traders</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Major stakeholders of the power sector</li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Featured Solutions */}
-        <section id="solutions" className="relative container py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden">
-          <div className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl" aria-hidden />
-          <div className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-          <div className="mx-auto max-w-3xl text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tight">Key Solutions</h2>
-            <p className="text-muted-foreground text-lg">Sustainable, market-ready solutions tailored to your strategy.</p>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <Wind className="text-primary" />
-                <CardTitle>Wind Energy Solutions</CardTitle>
-                <CardDescription>Sustainable wind power consulting and development.</CardDescription>
-              </CardHeader>
-            </Card>
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <Sun className="text-primary" />
-                <CardTitle>Solar Energy Solutions</CardTitle>
-                <CardDescription>Advanced photovoltaic systems and solar consulting.</CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-        </section>
-
         {/* Our Services */}
-        <section id="services" className="relative container py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden">
-          <div className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl" aria-hidden />
-          <div className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-          <div className="mx-auto max-w-3xl text-center space-y-4">
+        <section
+          id="services"
+          className="relative container pt-16 md:pt-24 pb-0 md:pb-0 overflow-visible"
+        >
+          <div
+            className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+            aria-hidden
+          />
+          <div className="mx-auto w-[calc(100%-20px)] max-w-12xl text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">Our Services</h2>
-            <p className="text-muted-foreground text-lg">Comprehensive power trading solutions designed for today’s dynamic energy markets.</p>
-          </div>
-          <div className="mx-auto mt-8 grid max-w-3xl gap-4 md:grid-cols-2">
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Energy Facilitation & Open Access – Seamless participation in power markets through facilitation and open access services.</p></div>
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Renewable Energy Solutions – Sustainable clean energy projects to meet environmental targets.</p></div>
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Energy Management & Energy Saving Technologies – Optimize consumption and reduce costs with advanced systems.</p></div>
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Power Engineering Advisory Services – Technical expertise for infrastructure and system optimization.</p></div>
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Energy Tech Consulting – Digital solutions to modernize energy operations.</p></div>
-            <div className="flex items-start gap-3"><CheckCircle2 className="mt-1 text-primary" /><p>Regulatory & Policy Advocacy – Navigate complex regulations with expert guidance.</p></div>
+            <p className="text-muted-foreground text-lg">
+            
+            </p>
           </div>
         </section>
+      <br></br>
+        {/* Services Navigation Wrapper */}
+        <div className="relative mx-auto w-[calc(100%-20px)] max-w-6xl min-h-[800px] md:min-h-[880px] -mt-6 md:-mt-8">
+          <button
+            aria-label="Previous section"
+            onClick={() => navigateService(-1)}
+            className={`left-0 -translate-x-full ${navBtnClass}`}
+          >
+            <ChevronLeft className={navIconClass} />
+          </button>
+          <button
+            aria-label="Next section"
+            onClick={() => navigateService(1)}
+            className={`right-0 translate-x-full ${navBtnClass}`}
+          >
+            <ChevronRight className={navIconClass} />
+          </button>
+
+          {/* Regulatory & Policy */}
+          <section
+            id="solutions"
+            className={`group relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
+              activeService !== "solutions" ? "hidden" : ""
+            }`}
+          >
+            <div
+              className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+                Regulatory &amp; Policy
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Navigating the power sector requires clear regulatory insight and
+                practical execution. We support tariff design, policy reform, and
+                compliance management so utilities, industries, and businesses can
+                interpret evolving frameworks with confidence and minimize regulatory
+                risk.
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Certified
+                  specialists with proven expertise
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Guidance
+                  on multi-year tariff petitions
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Policy
+                  advisory for utilities and industries
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> End-to-end
+                  compliance solutions
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Power Portfolio Optimization and Open Access */}
+          <section
+            id="portfolio"
+            className={`relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden ${
+              activeService !== "portfolio" ? "hidden" : ""
+            }`}
+          >
+            <div
+              className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+                Power Portfolio Optimization &amp; Open Access
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Unlock cost efficiency with customized power sourcing strategies
+                designed for your business needs. From open access procurement to
+                portfolio optimization, we help organizations cut energy costs while
+                maintaining regulatory compliance and supply reliability.
+              </p>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Our experts analyze market opportunities, assess sourcing models, and
+                develop financially optimized frameworks for stable, cost-effective
+                energy operations.
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Optimized
+                  power sourcing for industries
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access
+                  advisory and execution
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Risk
+                  assessment and financial modeling
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost-effective
+                  portfolio strategies
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Renewable Energy */}
+          <section
+            id="renewable"
+            className={`relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
+              activeService !== "renewable" ? "hidden" : ""
+            }`}
+          >
+            <div
+              className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+                Renewable Energy
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Transition to clean energy with confidence through our end-to-end
+                consultancy services. We support projects across solar, wind, hydro,
+                biomass, and waste-to-energy, guiding clients from feasibility to
+                implementation while ensuring commercial and policy alignment.
+              </p>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Our multi-disciplinary approach combines engineering insight, regulatory
+                expertise, and financial modeling to maximize returns and accelerate
+                India’s renewable transformation.
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Feasibility
+                  and project advisory
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> End-to-end
+                  renewable project guidance
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Compliance
+                  with energy obligations
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Scalable
+                  clean energy strategies
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Distributed Energy Resources & Sustainable Technologies */}
+          <section
+            id="distributed"
+            className={`relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden ${
+              activeService !== "distributed" ? "hidden" : ""
+            }`}
+          >
+            <div
+              className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+                Distributed Energy Resources &amp; Sustainable Technologies
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                The future of energy lies in decentralization. Travancore Energy
+                Solutions supports clients in deploying distributed energy resources
+                (DERs), battery storage, and smart technologies to enhance grid
+                resilience and operational efficiency.
+              </p>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                We design integration frameworks for grid interoperability, regulatory
+                compliance, and digital monitoring—enabling organizations to capture
+                long-term value through innovation and sustainability.
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Advisory
+                  on energy storage and DERs
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Integration
+                  of sustainable technologies
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Efficiency-driven
+                  deployment strategies
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Future-ready
+                  infrastructure planning
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Economic & Commercial Analysis */}
+          <section
+            id="economic"
+            className={`relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
+              activeService !== "economic" ? "hidden" : ""
+            }`}
+          >
+            <div
+              className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+                Economic &amp; Commercial Analysis for Power Utilities
+              </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                In a dynamic energy environment, strategic financial insight drives
+                sustainable growth. We offer economic and commercial analysis to help
+                utilities and industries evaluate tariffs, assess market potential, and
+                plan investments with clarity and confidence.
+              </p>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+                Through advanced modeling and transparent evaluation, we support
+                decision-making that enhances profitability and aligns with evolving
+                regulatory frameworks.
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Tariff
+                  evaluation and cost modeling
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
+                  opportunity assessment
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Investment
+                  planning and risk analysis
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost
+                  optimization and performance forecasting
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
 
         {/* Sectors We Serve */}
         <section id="sectors" className="relative container py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden">
