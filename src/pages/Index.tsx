@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Sun, Wind, CheckCircle2, Mail, Phone, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import { Sun, Wind, CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 const Index = () => {
   const { toast } = useToast();
@@ -39,18 +39,6 @@ const Index = () => {
     }
   }, []);
 
-  const serviceSectionIds = ["solutions", "portfolio", "renewable", "distributed", "economic"] as const;
-  const [activeService, setActiveService] = useState<typeof serviceSectionIds[number]>("solutions");
-  const navigateService = useCallback((delta: number) => {
-    const idx = serviceSectionIds.indexOf(activeService);
-    const next = serviceSectionIds[(idx + delta + serviceSectionIds.length) % serviceSectionIds.length];
-    setActiveService(next);
-    window.history.replaceState(null, "", `#${next}`);
-  }, [activeService]);
-
-  const navBtnClass = "absolute top-1/2 -translate-y-1/2 z-30 rounded-full bg-background/80 backdrop-blur flex items-center justify-center h-12 w-12 md:h-14 md:w-14 p-0 hover:bg-background shadow-sm";
-  const navIconClass = "h-8 w-8 md:h-9 md:w-9 text-primary";
-
   return (
     <div>
       <Header />
@@ -66,7 +54,7 @@ const Index = () => {
                 Travancore Energy Solutions Private Limited.
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
-                Strategic Energy & Power Consulting
+                Powering Partnerships. Enabling Progress.
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl">
                 Travancore Energy Solutions delivers end-to-end power sector advisory — from regulatory guidance to renewable integration — helping clients achieve cost efficiency and sustainability goals
@@ -88,9 +76,17 @@ const Index = () => {
           <div className="mx-auto w-[calc(100%-20px)] text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight">About Us</h2>
             <div className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify space-y-4">
-              <p>Travancore Energy Solutions Private Limited is a leading consulting firm specializing in power sector reforms, regulatory strategy, and sustainable energy development. With a deep understanding of India’s evolving electricity ecosystem, we work alongside government agencies, state utilities, and regulators to design efficient market frameworks, tariff models, and renewable energy policies that align with national objectives.</p>
-              <p>Our team of domain experts, engineers, and policy advisors brings extensive experience across generation, transmission, distribution, and trading sectors. We provide actionable insights to improve operational efficiency, ensure regulatory compliance, and facilitate the integration of emerging technologies in grid and market operations.</p>
-              <p>At Travancore Energy Solutions, we are committed to enabling India’s energy transition — fostering transparency, efficiency, and sustainability across every link of the power value chain.</p>
+              <p>Founded in 2016, Travancore Energy Solutions Pvt. Ltd. (TESL) is a specialized energy services and consulting company focused on bridging the gap between power producers, utilities, and large consumers. 
+                With years of hands-on experience in the evolving Indian power market, we deliver practical, regulatory, and strategic solutions that drive reliability, efficiency, and sustainability across the energy value chain.
+                </p>
+                <p>At TESL, we work closely with power generation companies, distribution utilities, and industrial clients to streamline commercial and operational processes.
+                Our expertise spans regulatory facilitation, power sale optimization, open access and trading advisory, renewable integration, and end-to-end support in policy and compliance matters.
+                Our team combines strong regulatory understanding with on-ground experience in power procurement, tariff advisory, and commercial dispute resolution. 
+                <p>We’ve helped clients navigate complex reforms, manage stakeholder relationships, and achieve financial and operational efficiency in alignment with national energy transition goals.
+                By combining deep industry knowledge with a results-driven approach, Travancore Energy Solutions continues to be a trusted partner for organizations aiming to adapt and grow in India’s dynamic power sector.
+                </p>
+              </p>
+
             </div>
           </div>
 
@@ -138,29 +134,13 @@ const Index = () => {
           </div>
         </section>
       <br></br>
-        {/* Services Navigation Wrapper */}
-        <div className="relative mx-auto w-[calc(100%-20px)] max-w-6xl min-h-[800px] md:min-h-[880px] -mt-6 md:-mt-8">
-          <button
-            aria-label="Previous section"
-            onClick={() => navigateService(-1)}
-            className={`left-0 -translate-x-full ${navBtnClass}`}
-          >
-            <ChevronLeft className={navIconClass} />
-          </button>
-          <button
-            aria-label="Next section"
-            onClick={() => navigateService(1)}
-            className={`right-0 translate-x-full ${navBtnClass}`}
-          >
-            <ChevronRight className={navIconClass} />
-          </button>
+        {/* Services */}
+        <div className="mx-auto w-[calc(100%-20px)] max-w-6xl -mt-6 md:-mt-8 space-y-6">
 
           {/* Regulatory & Policy */}
           <section
             id="solutions"
-            className={`group relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
-              activeService !== "solutions" ? "hidden" : ""
-            }`}
+            className="group relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden"
           >
             <div
               className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
@@ -172,14 +152,12 @@ const Index = () => {
             />
             <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
               <h2 className="text-3xl font-bold tracking-tight text-center">
-                Regulatory &amp; Policy
+                Regulatory & Policy
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                Navigating the power sector requires clear regulatory insight and
-                practical execution. We support tariff design, policy reform, and
-                compliance management so utilities, industries, and businesses can
-                interpret evolving frameworks with confidence and minimize regulatory
-                risk.
+            The Indian power sector is evolving rapidly, and staying compliant demands more than just awareness—it requires strategic insight. At Travancore Energy Solutions, we help clients interpret and adapt to complex regulatory frameworks with confidence. Our services span tariff design, policy reform support, and compliance management for utilities, industries, and large power consumers.
+We craft tailored strategies that align with both national and state-level regulations, ensuring smooth adaptation to new guidelines and seamless audit readiness. By simplifying technical and procedural requirements, we help clients minimize regulatory risk and stay focused on their core operations and growth.
+
               </p>
               <ul className="mt-2 space-y-2 text-muted-foreground">
                 <li className="flex gap-2">
@@ -205,9 +183,7 @@ const Index = () => {
           {/* Power Portfolio Optimization and Open Access */}
           <section
             id="portfolio"
-            className={`relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden ${
-              activeService !== "portfolio" ? "hidden" : ""
-            }`}
+            className="relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden"
           >
             <div
               className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
@@ -219,13 +195,12 @@ const Index = () => {
             />
             <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
               <h2 className="text-3xl font-bold tracking-tight text-center">
-                Power Portfolio Optimization &amp; Open Access
+Power Portfolio Optimization and Open Access
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                Unlock cost efficiency with customized power sourcing strategies
-                designed for your business needs. From open access procurement to
-                portfolio optimization, we help organizations cut energy costs while
-                maintaining regulatory compliance and supply reliability.
+          Energy costs can make or break competitiveness. We enable organizations to unlock cost efficiency through customized power sourcing and open access strategies. Our team evaluates sourcing options, analyzes market opportunities, and structures contracts that reduce costs while ensuring compliance and supply stability.
+From portfolio optimization to long-term planning, we balance savings with reliability, empowering businesses to manage their power expenses predictably in a dynamic and reform-driven market.
+
               </p>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
                 Our experts analyze market opportunities, assess sourcing models, and
@@ -256,9 +231,7 @@ const Index = () => {
           {/* Renewable Energy */}
           <section
             id="renewable"
-            className={`relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
-              activeService !== "renewable" ? "hidden" : ""
-            }`}
+            className="relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden"
           >
             <div
               className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
@@ -270,19 +243,14 @@ const Index = () => {
             />
             <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
               <h2 className="text-3xl font-bold tracking-tight text-center">
-                Renewable Energy
+                Renewable Energy Consulting
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                Transition to clean energy with confidence through our end-to-end
-                consultancy services. We support projects across solar, wind, hydro,
-                biomass, and waste-to-energy, guiding clients from feasibility to
-                implementation while ensuring commercial and policy alignment.
+          We guide organizations in their transition toward cleaner, more sustainable energy sources. Our expertise covers solar, wind, hydro, biomass, and waste-to-energy projects—right from feasibility studies to implementation.
+With deep technical, financial, and regulatory understanding, we ensure each project is commercially sound, compliant, and strategically aligned with sustainability goals. Our approach combines sound engineering with realistic business modelling to help clients decarbonize while maintaining profitability and resilience.
+
               </p>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                Our multi-disciplinary approach combines engineering insight, regulatory
-                expertise, and financial modeling to maximize returns and accelerate
-                India’s renewable transformation.
-              </p>
+     
               <ul className="mt-2 space-y-2 text-muted-foreground">
                 <li className="flex gap-2">
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Feasibility
@@ -307,9 +275,7 @@ const Index = () => {
           {/* Distributed Energy Resources & Sustainable Technologies */}
           <section
             id="distributed"
-            className={`relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden ${
-              activeService !== "distributed" ? "hidden" : ""
-            }`}
+            className="relative mt-[5px] py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden"
           >
             <div
               className="pointer-events-none absolute -z-10 top-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl"
@@ -321,13 +287,12 @@ const Index = () => {
             />
             <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
               <h2 className="text-3xl font-bold tracking-tight text-center">
-                Distributed Energy Resources &amp; Sustainable Technologies
+               Distributed Energy and Sustainable Technology Solutions
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                The future of energy lies in decentralization. Travancore Energy
-                Solutions supports clients in deploying distributed energy resources
-                (DERs), battery storage, and smart technologies to enhance grid
-                resilience and operational efficiency.
+Decentralized energy is redefining the future. We assist clients in planning and implementing distributed energy resources (DERs), energy storage, and smart-grid solutions that enhance resilience, flexibility, and efficiency.
+Our team develops integration frameworks that consider grid interoperability, evolving regulations, and emerging market mechanisms. We also support advanced energy management solutions such as microgrids, demand response, and digital monitoring tools—helping clients build reliable, cost-efficient, and future-ready energy systems.
+.
               </p>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
                 We design integration frameworks for grid interoperability, regulatory
@@ -358,9 +323,7 @@ const Index = () => {
           {/* Economic & Commercial Analysis */}
           <section
             id="economic"
-            className={`relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden ${
-              activeService !== "economic" ? "hidden" : ""
-            }`}
+            className="relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden"
           >
             <div
               className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
@@ -372,13 +335,12 @@ const Index = () => {
             />
             <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
               <h2 className="text-3xl font-bold tracking-tight text-center">
-                Economic &amp; Commercial Analysis for Power Utilities
+               Economic and Commercial Analysis for Power Sector.
               </h2>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                In a dynamic energy environment, strategic financial insight drives
-                sustainable growth. We offer economic and commercial analysis to help
-                utilities and industries evaluate tariffs, assess market potential, and
-                plan investments with clarity and confidence.
+Sound decisions depend on accurate data and insight. Our consultancy provides detailed economic and commercial analysis for utilities and large consumers to evaluate tariffs, forecast demand, and assess market opportunities.
+Using advanced financial models, we support investment planning, cost optimization, and risk assessment. The result—transparent, data-driven decisions that improve profitability and strengthen long-term sustainability.
+
               </p>
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
                 Through advanced modeling and transparent evaluation, we support
@@ -405,6 +367,55 @@ const Index = () => {
               </ul>
             </div>
           </section>
+
+          {/* Tech consulting */}
+          <section
+            id="tech-consulting"
+            className="relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden"
+          >
+            <div
+              className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
+              aria-hidden
+            />
+            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+              <h2 className="text-3xl font-bold tracking-tight text-center">
+Training and Capacity Building   
+       </h2>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+Knowledge is the foundation of progress. We offer specialized training and capacity-building programs for utilities, regulatory bodies, and industry professionals.
+Our programs blend regulatory, technical, and commercial perspectives, equipping participants with the skills needed to adapt to policy shifts, adopt new technologies, and lead the energy transition. 
+Each session is designed to build long-term institutional capability and drive innovation across the power sector.
+
+
+              </p>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              </p>
+              <ul className="mt-2 space-y-2 text-muted-foreground">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Tariff
+                  evaluation and cost modeling
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
+                  opportunity assessment
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Investment
+                  planning and risk analysis
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost
+                  optimization and performance forecasting
+                </li>
+              </ul>
+            </div>
+          </section>
+
+
         </div>
 
         {/* Sectors We Serve */}
@@ -436,28 +447,23 @@ const Index = () => {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle>Rajesh Kumar – CEO</CardTitle>
+                <CardTitle>Suresh V – CEO</CardTitle>
                 <CardDescription>15+ years | Strategic visionary in power markets and renewable development.</CardDescription>
               </CardHeader>
             </Card>
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle>Priya Sharma – Technical Director</CardTitle>
+                <CardTitle>Unni Viswanathan – Technical Director</CardTitle>
                 <CardDescription>12+ years | Expert in grid integration, system analysis, and renewable technologies.</CardDescription>
               </CardHeader>
             </Card>
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle>Anil Nair – Business Development Head</CardTitle>
+                <CardTitle>Pradeesh Kumar – Business Development Head</CardTitle>
                 <CardDescription>10+ years | Specialist in trading operations, compliance, and partnerships.</CardDescription>
               </CardHeader>
             </Card>
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>Meera Pillai – Operations Manager</CardTitle>
-                <CardDescription>8+ years | Expert in operational efficiency and sustainable practices.</CardDescription>
-              </CardHeader>
-            </Card>
+    
           </div>
         </section>
 
