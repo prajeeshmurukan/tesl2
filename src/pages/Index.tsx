@@ -548,29 +548,32 @@ Each session is designed to build long-term institutional capability and drive i
               <Button type="submit" variant="hero">Send Message</Button>
             </div>
           </form>
-          <Card className="mx-auto mt-8 max-w-2xl">
-            <CardContent className="grid gap-4 p-6 md:grid-cols-3">
+          <Card className="mx-auto mt-8 max-w-6xl">
+            <CardContent className="grid gap-2 md:gap-3 p-6 md:grid-cols-3">
               <div className="flex items-start gap-3">
                 <Mail className="mt-1 text-primary" />
                 <div>
-                  <p className="font-medium">Emails</p>
-                  <p className="text-muted-foreground">contact@tesl.com</p>
-                  <p className="text-muted-foreground">trading@tesl.com</p>
+                  <p className="font-medium">e-mail</p>
+                  <p className="text-muted-foreground">ceo@tesl.in</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="mt-1 text-primary" />
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+91 (471) 123-4567</p>
-                  <p className="text-muted-foreground">+91 (471) 987-6543</p>
+                  <p className="text-muted-foreground">+91 9811401096</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="mt-1 text-primary" />
                 <div>
                   <p className="font-medium">Address</p>
-                  <p className="text-muted-foreground">123 Tech Park, Trivandrum, Kerala, India</p>
+                  <p className="text-muted-foreground"><span className="whitespace-nowrap"><b>Travancore Energy Solutions Private Limited</b></span> 
+                                                      <br/> First floor, Next to CASE Carmel Towers                                                      
+                                                        <br/>Cotton Hill,Vazhuthacaud, 
+                                                        <br/>Thiruvananthapuram, 
+                                                        <br/>Kerala 695014, India
+                  </p>
                 </div>
               </div>
             </CardContent>
