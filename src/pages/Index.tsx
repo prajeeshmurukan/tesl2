@@ -1,7 +1,7 @@
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import FeatureTile from "@/components/site/FeatureTile";
-import heroImage from "@/assets/hero-renewable.jpg";
+import heroImage from "@/assets/hero-renewable2.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -28,7 +28,7 @@ const Index = () => {
     areaServed: "Global",
   };
 
-  const sectionIds = ["about", "solutions", "portfolio", "renewable", "distributed", "economic", "services", "sectors", "team", "contact"] as const;
+  const sectionIds = ["about", "why", "solutions", "portfolio", "renewable", "distributed", "economic", "services", "sectors", "industrial", "team", "contact"] as const;
   const navigateRelative = useCallback((currentId: typeof sectionIds[number], delta: number) => {
     const idx = sectionIds.indexOf(currentId);
     const next = sectionIds[(idx + delta + sectionIds.length) % sectionIds.length];
@@ -50,7 +50,7 @@ const Index = () => {
           <div className="pointer-events-none absolute -z-10 bottom-[-10%] left-[-10%] h-72 w-72 rounded-full bg-accent/40 blur-3xl" aria-hidden />
           <div className="container grid items-center gap-8 py-16 md:grid-cols-2 md:py-24">
             <div className="space-y-6 animate-fade-up">
-              <p className="text-3xl font-bold tracking-wider text-primary whitespace-nowrap">
+              <p className="text-3xl font-bold tracking-wider text-primary whitespace-normal md:whitespace-nowrap">
                 Travancore Energy Solutions Private Limited.
               </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
@@ -68,6 +68,39 @@ const Index = () => {
             </figure>
           </div>
         </section>
+
+        {/* Why choose us ? */}
+        <section id="why" className="relative container py-16 md:py-24 bg-muted/30 rounded-xl overflow-hidden">
+          <div className="pointer-events-none absolute -z-10 top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl" aria-hidden />
+          <div className="pointer-events-none absolute -z-10 bottom-0 left-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
+          <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+            <h2 className="text-3xl font-bold tracking-tight text-center">Why Choose Us ?</h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              As a trusted power-sector consultancy, TESL combines regulatory insight, technical depth,
+              and a results-focused approach to deliver lasting value.
+            </p>
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Expert Consultants</h3>
+                <p className="text-muted-foreground">A team with proven knowledge of power markets and policy.</p>
+                <h3 className="text-lg font-semibold">Cost Optimization</h3>
+                <p className="text-muted-foreground">Approaches that reduce spend and improve efficiency.</p>
+                <h3 className="text-lg font-semibold">Continuous Support</h3>
+                <p className="text-muted-foreground">End-to-end assistance from planning to execution.</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Tailored Solutions</h3>
+                <p className="text-muted-foreground">Strategies customized to your business and energy goals.</p>
+                <h3 className="text-lg font-semibold">Sustainable Focus</h3>
+                <p className="text-muted-foreground">Guidance to integrate renewable and clean energy seamlessly.</p>
+                <h3 className="text-lg font-semibold">Proven Success</h3>
+                <p className="text-muted-foreground">Strong track record across industries, utilities, and renewables.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <br></br>
 
         {/* About */}
         <section id="about" className="relative container py-16 md:py-24 bg-muted/30 rounded-xl overflow-hidden">
@@ -94,7 +127,7 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold">What we offer</h3>
               <ul className="mt-3 space-y-2 text-muted-foreground">
-                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory advisory and assistance for private and government power utilities.</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory advisory and assistance for private and government clients.</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power portfolio management to optimize power purchase costs for industrial and commercial consumers.</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable energy project development and requirement assessments.</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Commercial due diligence for renewable and conventional energy projects.</li>
@@ -107,7 +140,7 @@ const Index = () => {
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Transmission utilities</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Distribution utilities</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power traders</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Major stakeholders of the power sector</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Major stakeholders of the power sector and industries</li>
               </ul>
             </div>
           </div>
@@ -316,6 +349,14 @@ Our team develops integration frameworks that consider grid interoperability, ev
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Future-ready
                   infrastructure planning
                 </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Renewable energy storage and optimization solutions for consumers 
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Strategic advisory on economically optimized energy storage solutions
+                </li>
+
+
               </ul>
             </div>
           </section>
@@ -364,6 +405,9 @@ Using advanced financial models, we support investment planning, cost optimizati
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost
                   optimization and performance forecasting
                 </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> AI-based forecast modeling and scenario simulation
+                </li>
               </ul>
             </div>
           </section>
@@ -396,20 +440,16 @@ Each session is designed to build long-term institutional capability and drive i
               </p>
               <ul className="mt-2 space-y-2 text-muted-foreground">
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Tariff
-                  evaluation and cost modeling
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory and compliance workshops
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
-                  opportunity assessment
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access and power market operations
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Investment
-                  planning and risk analysis
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable project development and PPA structuring
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost
-                  optimization and performance forecasting
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Energy data analytics, forecasting, and reporting
                 </li>
               </ul>
             </div>
@@ -427,14 +467,20 @@ Each session is designed to build long-term institutional capability and drive i
             <p className="text-muted-foreground text-lg">Delivering specialized energy solutions across diverse industries.</p>
           </div>
             <div className="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <FeatureTile Icon={CheckCircle2} title="Power Generation" description="Thermal, renewable, and hybrid plants." />
+              <FeatureTile Icon={CheckCircle2} title="Power Generation" description="Thermal, renewable, gas based and hybrid plants." />
               <FeatureTile Icon={CheckCircle2} title="Transmission" description="High voltage infrastructure and grid connectivity." />
               <FeatureTile Icon={CheckCircle2} title="Distribution" description="Last-mile power delivery systems." />
               <FeatureTile Icon={CheckCircle2} title="Trading" description="Power and commodity trading platforms." />
               <FeatureTile Icon={CheckCircle2} title="Power Market" description="Analytics, forecasting, and market participation." />
               <FeatureTile Icon={CheckCircle2} title="Renewable Energy" description="Solar, wind, and sustainable generation technologies." />
+              <div className="md:col-span-2 lg:col-span-3">
+                <FeatureTile Icon={CheckCircle2} title="Large-Scale Industrial Clients" description="TESL partners with energy-intensive industries to reduce landed power cost, de-risk supply, and advance decarbonization goals. We combine market intelligence, regulatory know‑how, and technical expertise to deliver measurable outcomes" />
+              </div>
+
             </div>
         </section>
+
+
 
         {/* Our Team */}
         <section id="team" className="relative container py-16 md:py-24 bg-muted/20 rounded-xl overflow-hidden">
@@ -444,24 +490,39 @@ Each session is designed to build long-term institutional capability and drive i
             <h2 className="text-3xl font-bold tracking-tight">Our Team</h2>
             <p className="text-muted-foreground text-lg">Experienced professionals driving innovation in the energy sector.</p>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 md:grid-cols-3 lg:grid-cols-3">
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle>Suresh V – CEO</CardTitle>
-                <CardDescription>15+ years | Strategic visionary in power markets and renewable development.</CardDescription>
+                <CardTitle>Suresh Velappan – CEO</CardTitle>
+                <CardDescription>25+ years | Strategic visionary in power markets and renewable development.</CardDescription>
               </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                  Mr. Velappan is a senior energy professional with over 27 years of experience across the energy and infrastructure sector. He has a strong track record in business development, government interfacing, and stakeholder management, with deep understanding of market dynamics and emerging trends. His expertise spans revenue management, profit-centre leadership, conceptualizing and executing innovative business models, people management, strategy and planning, and dispute resolution. As an entrepreneur and independent energy and infrastructure consultant, he has advised leading organizations including Adani Power, Jindal Power, SEIL Limited, BALCO, and other multinational and listed corporates.
+                </p>
+              </CardContent>
             </Card>
             <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle>Unni Viswanathan – Technical Director</CardTitle>
-                <CardDescription>12+ years | Expert in grid integration, system analysis, and renewable technologies.</CardDescription>
+              <CardHeader className="">
+                <CardTitle className="whitespace-nowrap">Unni Viswanathan – Advisor</CardTitle>
+                <CardDescription>30+ years | Expert in grid integration, system analysis, and renewable technologies.</CardDescription>
               </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                  Mr. Viswanathan is a seasoned power systems expert with over three decades of experience spanning transmission engineering, grid integration, and advanced renewable-energy technologies. He has led critical assignments in system planning, load-flow studies, protection coordination, and network stability assessment for utilities and large industrial consumers. His background includes extensive work integrating renewable and distributed energy resources (DERs) into utility networks, evaluating grid readiness, and developing smart‑grid and automation strategies.
+                </p>
+              </CardContent>
             </Card>
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle>Pradeesh Kumar – Business Development Head</CardTitle>
-                <CardDescription>10+ years | Specialist in trading operations, compliance, and partnerships.</CardDescription>
+                <CardDescription>15+ years | Specialist in trading operations, compliance, and partnerships.</CardDescription>
               </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                  Mr. Kumar is an accomplished business leader with over 15 years of experience in power trading, market operations, and strategic partnerships. He brings strong expertise in regulatory compliance, commercial structuring, and cross‑border trading mechanisms, with deep understanding of evolving market frameworks and renewable integration. His work spans portfolio management, bilateral and exchange trading, contract negotiation, and market‑entry strategies for utilities and large consumers. He has established and scaled trading desks, managed risk exposure, and ensured adherence to national and regional regulations.
+                </p>
+              </CardContent>
             </Card>
     
           </div>
