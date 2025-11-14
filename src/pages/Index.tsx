@@ -63,42 +63,36 @@ const Index = () => {
                 <a href="#services"><Button variant="hero" size="lg">Get Started</Button></a>
               </div>
             </div>
-            <figure className="relative glass rounded-xl p-2 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform">
-              <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full rounded-lg border shadow-sm" />
+            <figure className="relative glass rounded-xl p-0 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform bg-[#E6FFFF] translate-x-[120px] overflow-hidden">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -z-10"
+                style={{
+                  background:
+                    "radial-gradient(60% 50% at 60% 70%, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.12) 30%, rgba(0,0,0,0.06) 55%, rgba(0,0,0,0) 80%)",
+                  filter: "blur(8px)",
+                  opacity: 0.4,
+                  transform: "translateY(6px)",
+                }}
+              />
+              <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full rounded-lg shadow-none" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-lg"
+                style={{
+                  background:
+                  "linear-gradient(to left, #dbeff8 0%, rgba(230,255,255,0) 5%)," +
+                  "linear-gradient(to right, #dbf0f3 0%, rgba(230,255,255,0) 45%)," +
+                    "linear-gradient(to left, #dbeff8 0%, rgba(230,255,255,0) 15%)," +
+                    "linear-gradient(to bottom, #dbf0f4 0%, rgba(230,255,255,0) 15%)," +
+                    "linear-gradient(to top,  #dbf0f4 0%, rgba(230,255,255,0) 1%)",
+                  mixBlendMode: "normal",
+                }}
+              />
             </figure>
           </div>
         </section>
 
-        {/* Why choose us ? */}
-        <section id="why" className="relative container py-16 md:py-24 bg-muted/30 rounded-xl overflow-hidden">
-          <div className="pointer-events-none absolute -z-10 top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl" aria-hidden />
-          <div className="pointer-events-none absolute -z-10 bottom-0 left-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-          <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
-            <h2 className="text-3xl font-bold tracking-tight text-center">Why Choose Us ?</h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-              As a trusted power-sector consultancy, TESL combines regulatory insight, technical depth,
-              and a results-focused approach to deliver lasting value.
-            </p>
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Expert Consultants</h3>
-                <p className="text-muted-foreground">A team with proven knowledge of power markets and policy.</p>
-                <h3 className="text-lg font-semibold">Cost Optimization</h3>
-                <p className="text-muted-foreground">Approaches that reduce spend and improve efficiency.</p>
-                <h3 className="text-lg font-semibold">Continuous Support</h3>
-                <p className="text-muted-foreground">End-to-end assistance from planning to execution.</p>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Tailored Solutions</h3>
-                <p className="text-muted-foreground">Strategies customized to your business and energy goals.</p>
-                <h3 className="text-lg font-semibold">Sustainable Focus</h3>
-                <p className="text-muted-foreground">Guidance to integrate renewable and clean energy seamlessly.</p>
-                <h3 className="text-lg font-semibold">Proven Success</h3>
-                <p className="text-muted-foreground">Strong track record across industries, utilities, and renewables.</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <br></br>
 
@@ -193,10 +187,7 @@ We craft tailored strategies that align with both national and state-level regul
 
               </p>
               <ul className="mt-2 space-y-2 text-muted-foreground">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Certified
-                  specialists with proven expertise
-                </li>
+
                 <li className="flex gap-2">
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Guidance
                   on multi-year tariff petitions
@@ -393,10 +384,7 @@ Using advanced financial models, we support investment planning, cost optimizati
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Tariff
                   evaluation and cost modeling
                 </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
-                  opportunity assessment
-                </li>
+
                 <li className="flex gap-2">
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Investment
                   planning and risk analysis
@@ -407,6 +395,12 @@ Using advanced financial models, we support investment planning, cost optimizati
                 </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> AI-based forecast modeling and scenario simulation
+                </li>
+                                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Energy data analytics, forecasting, and reporting
+                </li>
+                                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable project development and PPA structuring 
                 </li>
               </ul>
             </div>
@@ -439,24 +433,55 @@ Each session is designed to build long-term institutional capability and drive i
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
               </p>
               <ul className="mt-2 space-y-2 text-muted-foreground">
+                                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
+                  opportunity assessment workshops
+                </li>
                 <li className="flex gap-2">
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory and compliance workshops
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access and power market operations
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access and power market operations workshops
                 </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable project development and PPA structuring
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Energy data analytics, forecasting, and reporting
-                </li>
+
+
               </ul>
             </div>
           </section>
 
 
         </div>
+
+        {/* Why choose us ? */}
+        <section id="why" className="relative container py-16 md:py-24 bg-muted/30 rounded-xl overflow-hidden">
+          <div className="pointer-events-none absolute -z-10 top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-2xl" aria-hidden />
+          <div className="pointer-events-none absolute -z-10 bottom-0 left-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl" aria-hidden />
+          <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
+            <h2 className="text-3xl font-bold tracking-tight text-center">Why Choose Us ?</h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
+              As a trusted power-sector consultancy, TESL combines regulatory insight, technical depth,
+              and a results-focused approach to deliver lasting value.
+            </p>
+            <div className="grid gap-8 md:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Expert Consultants</h3>
+                <p className="text-muted-foreground">A team with proven knowledge of power markets and policy.</p>
+                <h3 className="text-lg font-semibold">Cost Optimization</h3>
+                <p className="text-muted-foreground">Approaches that reduce spend and improve efficiency.</p>
+                <h3 className="text-lg font-semibold">Continuous Support</h3>
+                <p className="text-muted-foreground">End-to-end assistance from planning to execution.</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold">Tailored Solutions</h3>
+                <p className="text-muted-foreground">Strategies customized to your business and energy goals.</p>
+                <h3 className="text-lg font-semibold">Sustainable Focus</h3>
+                <p className="text-muted-foreground">Guidance to integrate renewable and clean energy seamlessly.</p>
+                <h3 className="text-lg font-semibold">Proven Success</h3>
+                <p className="text-muted-foreground">Strong track record across industries, utilities, and renewables.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Sectors We Serve */}
         <section id="sectors" className="relative container py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden">
@@ -509,7 +534,14 @@ Each session is designed to build long-term institutional capability and drive i
               </CardHeader>
               <CardContent className="pt-0">
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
-                  Mr. Viswanathan is a seasoned power systems expert with over three decades of experience spanning transmission engineering, grid integration, and advanced renewable-energy technologies. He has led critical assignments in system planning, load-flow studies, protection coordination, and network stability assessment for utilities and large industrial consumers. His background includes extensive work integrating renewable and distributed energy resources (DERs) into utility networks, evaluating grid readiness, and developing smart‑grid and automation strategies.
+An energy-sector leader with a foundation in Finance and Commerce, bringing decades of experience across India’s power industry.
+Led the top-line and bottom-line of a successful electricity trading business for over fifteen years.
+Worked closely with state utilities, private generators, central government corporations, and large industrial consumers.
+Deep exposure to power markets, commercial strategy, and operations across the subcontinent.
+Experienced in business development, organisational leadership, customer relations, and human-resource management.
+Two decades of hands-on involvement in regulatory and policy analysis across multiple forums.
+Actively engaged with Government, regulators, policymakers, and sector stakeholders.
+Provided strategic inputs on technical, legal, commercial, and policy matters affecting the energy ecosystem.
                 </p>
               </CardContent>
             </Card>

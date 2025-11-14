@@ -17,11 +17,11 @@ const Header = () => {
         </Link>
         <nav className="hidden gap-6 md:flex" aria-label="Primary navigation">
           <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</a>
-          <a href="#why" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Why choose us ?</a>
+          <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a>
           <a href="#services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Services</a>
+          <a href="#why" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Why choose us ?</a>
           <a href="#sectors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Sectors we serve</a>
           <a href="#team" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Team</a>
-          <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a>
           <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
         </nav>
         <div className="flex items-center gap-2">
