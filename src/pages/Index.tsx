@@ -63,7 +63,7 @@ const Index = () => {
                 <a href="#services"><Button variant="hero" size="lg">Get Started</Button></a>
               </div>
             </div>
-            <figure className="relative glass rounded-xl p-2 hover-scale md:ml-8 lg:ml-12">
+            <figure className="relative glass rounded-xl p-2 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform">
               <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full rounded-lg border shadow-sm" />
             </figure>
           </div>
