@@ -63,7 +63,7 @@ const Index = () => {
                 <a href="#services"><Button variant="hero" size="lg">Get Started</Button></a>
               </div>
             </div>
-            <figure className="relative glass rounded-xl p-0 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform bg-[#E6FFFF] translate-x-[120px] overflow-hidden">
+            <figure className="relative glass rounded-xl p-0 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform bg-[#E6FFFF] translate-x-[120px] overflow-hidden -my-16 md:-my-24 h-[calc(100%+8rem)] md:h-[calc(100%+12rem)]">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -z-10"
@@ -75,7 +75,7 @@ const Index = () => {
                   transform: "translateY(6px)",
                 }}
               />
-              <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full rounded-lg shadow-none" />
+              <img src={heroImage} alt="Strategic energy and power consulting across solar, wind, and modern power markets" className="w-full h-full object-cover rounded-lg shadow-none" />
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-lg"
