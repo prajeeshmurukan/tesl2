@@ -60,7 +60,7 @@ const Index = () => {
                 <a href="#services"><Button variant="hero" size="lg">Get Started</Button></a>
               </div>
             </div>
-            <figure className="relative glass rounded-xl p-0 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform bg-[#E6FFFF] translate-x-[120px] overflow-hidden -my-16 md:-my-24 h-[calc(100%+8rem)] md:h-[calc(100%+12rem)]">
+            <figure className="relative glass rounded-xl p-0 hover-scale md:ml-8 lg:ml-12 md:scale-105 lg:scale-110 origin-center transition-transform bg-[#E6FFFF] md:translate-x-[120px] overflow-hidden my-6 md:-my-24 h-64 md:h-[calc(100%+12rem)]">
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -z-10"
