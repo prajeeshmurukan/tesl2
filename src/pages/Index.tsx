@@ -50,9 +50,6 @@ const Index = () => {
           <div className="pointer-events-none absolute -z-10 bottom-[-10%] left-[-10%] h-72 w-72 rounded-full bg-accent/40 blur-3xl" aria-hidden />
           <div className="container grid items-center gap-8 py-16 md:grid-cols-2 md:py-24">
             <div className="space-y-6 animate-fade-up">
-              <p className="text-3xl font-bold tracking-wider text-primary whitespace-normal md:whitespace-nowrap">
-                Travancore Energy Solutions Private Limited.
-              </p>
               <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
                 Powering Partnerships. Enabling Progress.
               </h1>
@@ -106,9 +103,7 @@ const Index = () => {
               <p>Founded in 2016, Travancore Energy Solutions Pvt. Ltd. (TESL) is a specialized energy services and consulting company focused on bridging the gap between power producers, utilities, and large consumers. 
                 With years of hands-on experience in the evolving Indian power market, we deliver practical, regulatory, and strategic solutions that drive reliability, efficiency, and sustainability across the energy value chain.
                 </p>
-                <p>At TESL, we work closely with power generation companies, distribution utilities, and industrial clients to streamline commercial and operational processes.
-                Our expertise spans regulatory facilitation, power sale optimization, open access and trading advisory, renewable integration, and end-to-end support in policy and compliance matters.
-                Our team combines strong regulatory understanding with on-ground experience in power procurement, tariff advisory, and commercial dispute resolution. 
+                <p>At TESL, we work closely with power generation companies, distribution utilities,Power trading companies and industrial/commercial consumers to streamline commercial and operational processes. Our expertise spans regulatory facilitation, power sale optimization, open access and trading advisory, renewable integration, and end-to-end support in policy and compliance matters. Our team combines strong regulatory understanding with on-ground experience in power procurement, tariff advisory, and commercial dispute resolution. 
                 <p>We’ve helped clients navigate complex reforms, manage stakeholder relationships, and achieve financial and operational efficiency in alignment with national energy transition goals.
                 By combining deep industry knowledge with a results-driven approach, Travancore Energy Solutions continues to be a trusted partner for organizations aiming to adapt and grow in India’s dynamic power sector.
                 </p>
@@ -134,7 +129,7 @@ const Index = () => {
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Transmission utilities</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Distribution utilities</li>
                 <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Power traders</li>
-                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Major stakeholders of the power sector and industries</li>
+                <li className="flex gap-2"><CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Major stakeholders of the power sector and industrial/commercial consumers</li>
               </ul>
             </div>
           </div>
@@ -231,24 +226,48 @@ From portfolio optimization to long-term planning, we balance savings with relia
                 develop financially optimized frameworks for stable, cost-effective
                 energy operations.
               </p>
-              <ul className="mt-2 space-y-2 text-muted-foreground">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Optimized
-                  power sourcing for industries
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access
-                  advisory and execution
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Risk
-                  assessment and financial modeling
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost-effective
-                  portfolio strategies
-                </li>
-              </ul>
+              <div className="mt-2 grid gap-4 md:grid-cols-2 text-muted-foreground">
+                <ul className="space-y-2">
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Optimized power sourcing for industries & commercial cosumers
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access
+                    advisory and execution
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Risk
+                    assessment and financial modeling
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost-effective
+                    portfolio strategies
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Economic and Commercial Analysis for Power Sector
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Tariff evaluation and cost modeling
+                  </li>
+                </ul>
+                <ul className="space-y-2">
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Economic and Commercial Analysis for Power Sector
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Investment planning and risk analysis
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Cost optimization and performance forecasting
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Energy data analytics, forecasting, and reporting
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />AI-based forecast modeling and scenario simulation
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
 
@@ -340,71 +359,13 @@ Our team develops integration frameworks that consider grid interoperability, ev
                   <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Future-ready
                   infrastructure planning
                 </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Renewable energy storage and optimization solutions for consumers 
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" />Strategic advisory on economically optimized energy storage solutions
-                </li>
+
 
 
               </ul>
             </div>
           </section>
 
-          {/* Economic & Commercial Analysis */}
-          <section
-            id="economic"
-            className="relative mt-[5px] py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 rounded-xl overflow-hidden"
-          >
-            <div
-              className="pointer-events-none absolute -z-10 -top-6 left-6 h-36 w-36 rounded-full bg-primary/10 blur-2xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -z-10 bottom-0 right-0 h-48 w-48 rounded-full bg-accent/20 blur-3xl"
-              aria-hidden
-            />
-            <div className="mx-auto w-[calc(100%-20px)] max-w-6xl space-y-6">
-              <h2 className="text-3xl font-bold tracking-tight text-center">
-               Economic and Commercial Analysis for Power Sector.
-              </h2>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-Sound decisions depend on accurate data and insight. Our consultancy provides detailed economic and commercial analysis for utilities and large consumers to evaluate tariffs, forecast demand, and assess market opportunities.
-Using advanced financial models, we support investment planning, cost optimization, and risk assessment. The result—transparent, data-driven decisions that improve profitability and strengthen long-term sustainability.
-
-              </p>
-              <p className="text-muted-foreground text-base md:text-lg leading-relaxed text-justify">
-                Through advanced modeling and transparent evaluation, we support
-                decision-making that enhances profitability and aligns with evolving
-                regulatory frameworks.
-              </p>
-              <ul className="mt-2 space-y-2 text-muted-foreground">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Tariff
-                  evaluation and cost modeling
-                </li>
-
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Investment
-                  planning and risk analysis
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Cost
-                  optimization and performance forecasting
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> AI-based forecast modeling and scenario simulation
-                </li>
-                                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Energy data analytics, forecasting, and reporting
-                </li>
-                                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Renewable project development and PPA structuring 
-                </li>
-              </ul>
-            </div>
-          </section>
 
           {/* Tech consulting */}
           <section
@@ -434,16 +395,20 @@ Each session is designed to build long-term institutional capability and drive i
               </p>
               <ul className="mt-2 space-y-2 text-muted-foreground">
                                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Market
-                  opportunity assessment workshops
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> We are equipped to empower industrial and commercial consumers with deep energy market knowledge
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Regulatory and compliance workshops
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> Open access and power market operations workshops
-                </li>
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> We proviude trainings designed to build confidence in navigating regulatory and compliance frameworks.
 
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> We enable organizations to confidently participate in open access and power markets.
+
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="text-primary h-6 w-6 flex-shrink-0" /> We provide customized training programs tailored to meet specific operational needs.
+
+                </li>
 
               </ul>
             </div>
@@ -499,7 +464,7 @@ Each session is designed to build long-term institutional capability and drive i
               <FeatureTile Icon={CheckCircle2} title="Power Market" description="Analytics, forecasting, and market participation." />
               <FeatureTile Icon={CheckCircle2} title="Renewable Energy" description="Solar, wind, and sustainable generation technologies." />
               <div className="md:col-span-2 lg:col-span-3">
-                <FeatureTile Icon={CheckCircle2} title="Large-Scale Industrial Clients" description="TESL partners with energy-intensive industries to reduce landed power cost, de-risk supply, and advance decarbonization goals. We combine market intelligence, regulatory know‑how, and technical expertise to deliver measurable outcomes" />
+                <FeatureTile Icon={CheckCircle2} title="Large-Scale Industrial/commercial consumers" description="TESL partners with energy-intensive industries/commercial consumers to reduce landed power cost, de-risk supply, and advance decarbonization goals. We combine market intelligence, regulatory know‑how, and technical expertise to deliver measurable outcomes" />
               </div>
 
             </div>
@@ -519,21 +484,21 @@ Each session is designed to build long-term institutional capability and drive i
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle>Suresh Velappan – CEO</CardTitle>
-                <CardDescription>25+ years | Strategic visionary in power markets and renewable development.</CardDescription>
+                <CardDescription className="break-words">25+ years | Strategic visionary in power markets and renewable development.</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words">
                   Mr. Velappan is a senior energy professional with over 27 years of experience across the energy and infrastructure sector. He has a strong track record in business development, government interfacing, and stakeholder management, with deep understanding of market dynamics and emerging trends. His expertise spans revenue management, profit-centre leadership, conceptualizing and executing innovative business models, people management, strategy and planning, and dispute resolution. As an entrepreneur and independent energy and infrastructure consultant, he has advised leading organizations including Adani Power, Jindal Power, SEIL Limited, BALCO, and other multinational and listed corporates.
                 </p>
               </CardContent>
             </Card>
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader className="">
-                <CardTitle className="whitespace-nowrap">Unni Viswanathan – Advisor</CardTitle>
-                <CardDescription>30+ years | Expert in grid integration, system analysis, and renewable technologies.</CardDescription>
+                <CardTitle>Unni Viswanathan – Advisor</CardTitle>
+                <CardDescription className="break-words">30+ years | Expert in grid integration, system analysis, and renewable technologies.</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words">
 An energy-sector leader with a foundation in Finance and Commerce, bringing decades of experience across India’s power industry.
 Led the top-line and bottom-line of a successful electricity trading business for over fifteen years.
 Worked closely with state utilities, private generators, central government corporations, and large industrial consumers.
@@ -548,10 +513,10 @@ Provided strategic inputs on technical, legal, commercial, and policy matters af
             <Card className="hover:shadow-md transition-shadow">
               <CardHeader>
                 <CardTitle>Pradeesh Kumar – Business Development Head</CardTitle>
-                <CardDescription>15+ years | Specialist in trading operations, compliance, and partnerships.</CardDescription>
+                <CardDescription className="break-words">15+ years | Specialist in trading operations, compliance, and partnerships.</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words">
                   Mr. Kumar is an accomplished business leader with over 15 years of experience in power trading, market operations, and strategic partnerships. He brings strong expertise in regulatory compliance, commercial structuring, and cross‑border trading mechanisms, with deep understanding of evolving market frameworks and renewable integration. His work spans portfolio management, bilateral and exchange trading, contract negotiation, and market‑entry strategies for utilities and large consumers. He has established and scaled trading desks, managed risk exposure, and ensured adherence to national and regional regulations.
                 </p>
               </CardContent>
@@ -586,22 +551,22 @@ Provided strategic inputs on technical, legal, commercial, and policy matters af
                 <Mail className="mt-1 text-primary" />
                 <div>
                   <p className="font-medium">e-mail</p>
-                  <p className="text-muted-foreground">ceo@tesl.in</p>
+                  <p className="text-muted-foreground break-words">ceo@tesl.in</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Phone className="mt-1 text-primary" />
                 <div>
                   <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+91 9811401096</p>
+                  <p className="text-muted-foreground break-words">+91 9811401096</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="mt-1 text-primary" />
                 <div>
                   <p className="font-medium">Address</p>
-                  <p className="text-muted-foreground"><span className="whitespace-nowrap"><b>Travancore Energy Solutions Private Limited</b></span> 
-                                                      <br/> First floor, Next to CASE Carmel Towers                                                      
+                  <p className="text-muted-foreground break-words hyphens-auto"><span><b>Travancore Energy Solutions Private Limited</b></span> 
+                                                      <br/> First floor, Next to CASE Carmel Towers                                                       
                                                         <br/>Cotton Hill,Vazhuthacaud, 
                                                         <br/>Thiruvananthapuram, 
                                                         <br/>Kerala 695014, India

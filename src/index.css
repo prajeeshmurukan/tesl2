@@ -122,6 +122,9 @@ All colors MUST be HSL.
   .btn-hero:active {
     transform: translateY(0);
   }
+  .brand-name {
+    font-weight: var(--brand-weight, 800);
+  }
 }
 
 @layer base {

@@ -13,7 +13,12 @@ const Header = () => {
             loading="eager"
             decoding="async"
           />
-          <span className="sr-only"></span>
+<span
+  className="brand-name text-[16px] md:text-[20px] bg-clip-text text-transparent whitespace-nowrap"
+  style={{ backgroundImage: "var(--gradient-primary)", ['--brand-weight' as any]: 700 }}
+>
+  Travancore Energy Solutions Private Limited.
+</span>
         </Link>
         <nav className="hidden gap-6 md:flex" aria-label="Primary navigation">
           <a href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</a>
@@ -33,3 +38,4 @@ const Header = () => {
 };
 
 export default Header;
+
